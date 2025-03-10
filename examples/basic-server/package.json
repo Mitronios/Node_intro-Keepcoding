@@ -1,0 +1,14 @@
+{
+  "name": "basic-server",
+  "version": "1.0.0",
+  "description": "First time using node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mitronios",
+  "license": "ISC",
+  "dependencies": {
+    "chance": "^1.1.12"
+  }
+}
