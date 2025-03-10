@@ -8,6 +8,6 @@ const server = http.createServer(function (request, response) {
 });
 
 // Start the server
-server.listen(1337, "127.0.0.1");
+server.listen(1337, "127.0.0.1"); //port, local
 
 console.log("Server started on http://127.0.0.1:1337");
