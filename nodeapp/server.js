@@ -1,16 +1,12 @@
-import express from "express";
 import http from "node:http";
+import app from "./app.js";
 
-const app = express();
-
-app.get("/", (req, res, next) => {
-  res.send("Hello from res");
-});
+const port = process.env.PORT || 3000;
 
 //create http server
 const server = http.createServer(app);
 
 server.on("listening", () => {
-  console.log("Server stated on port http://localhost:3000");
+  console.log(`Server stated on port http://localhost:${port}`);
 });
-server.listen(3000);
+server.listen(port);
