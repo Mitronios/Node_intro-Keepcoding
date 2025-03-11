@@ -8,9 +8,9 @@ module.exports = {
 };
 
 //Similar sintax as above
-module.exports.sum = (a, b) => {
-  return a + b;
-};
-module.exports.myText = "";
+// module.exports.sum = (a, b) => {
+//   return a + b;
+// };
+// module.exports.myText = "";
 
-exports.myText2 = "This is my text 2";
+// exports.myText2 = "This is my text 2";

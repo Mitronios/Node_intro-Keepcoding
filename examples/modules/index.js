@@ -2,6 +2,7 @@ const modules = require("./module");
 const modules2 = require("./module");
 const modules3 = require("./module");
 const modules4 = require("./module");
+import moduleES from ("./module-es.mjs");
 
 console.log(modules3.sum(4, 5));
 
@@ -12,3 +13,7 @@ console.log(modules4.myText);
 // It doesn't matter how many times we are calling it
 //It will load only once
 //This is what we call a singleton, only one can exist
+
+console.log(moduleEs.sum(3, 4));
+
+console.log(moduleEs.text3);
