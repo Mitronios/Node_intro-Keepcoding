@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "cross-env PORT=5001 nodemon server.js"
+    "dev": "cross-env PORT=3000 nodemon server.js"
   },
   "keywords": [],
   "author": "",
