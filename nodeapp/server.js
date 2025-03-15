@@ -1,6 +1,8 @@
 import express from "express";
 import http from "node:http";
 
+const port = process.env.PORT || 3000;
+
 const app = express();
 
 app.get("/", (req, res, next) => {
@@ -11,6 +13,6 @@ app.get("/", (req, res, next) => {
 const server = http.createServer(app);
 
 server.on("listening", () => {
-  console.log("Server started on htttp://localhost:3000");
+  console.log(`Server started on htttp://localhost:${port}`);
 });
-server.listen(3000);
+server.listen(port);
