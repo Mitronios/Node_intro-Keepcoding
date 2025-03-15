@@ -8,4 +8,4 @@ export default {
   text: "",
 };
 
-export const text3 = "I'm text 3";
+// export const text3 = "I'm text 3";

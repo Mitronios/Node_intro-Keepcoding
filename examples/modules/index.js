@@ -2,7 +2,9 @@ const modules = require("./module");
 const modules2 = require("./module");
 const modules3 = require("./module");
 const modules4 = require("./module");
-import moduleES from ("./module-es.mjs");
+
+//JS modules (EcmaScript)
+const moduleES = require("./modules-es.mjs");
 
 console.log(modules3.sum(4, 5));
 
@@ -14,6 +16,7 @@ console.log(modules4.myText);
 //It will load only once
 //This is what we call a singleton, only one can exist
 
-console.log(moduleEs.sum(3, 4));
+//Using ES modules
 
-console.log(moduleEs.text3);
+console.log(moduleES.default.sum(4, 9));
+console.log(moduleES.myText);

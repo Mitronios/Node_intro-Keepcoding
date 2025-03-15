@@ -14,3 +14,4 @@ module.exports = {
 // module.exports.myText = "";
 
 // exports.myText2 = "This is my text 2";
+//Only use one a the time, above is the one recommended
