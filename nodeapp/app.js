@@ -1,14 +1,17 @@
 import express from "express";
 import createError from "http-errors";
+import logger from "morgan";
 
 const app = express();
 
-app.use((req, res, next) => {
-  //With next we create a 'middleware'
-  //A middleware should answer or return the next
-  console.log("Receiving request of type", req.method, "to", req.url);
-  next(); //This returns next and passes the control to the next execution
-});
+// app.use((req, res, next) => {
+//   //With next we create a 'middleware'
+//   //A middleware should answer or return the next
+//   console.log("Receiving request: type", req.method, "to", req.url);
+//   next(); //This returns next and passes the control to the next execution
+// });
+//Morgan replaces all of the above
+app.use(logger("dev"));
 
 //In this example this will be the next execution
 app.get("/", (req, res, next) => {
