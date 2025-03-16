@@ -1,9 +1,13 @@
+import path from "node:path"; //This help us handle the use of system path for windows, linux and mac
+import { fileURLToPath } from "node:url"; //because of ES modules
 import express from "express";
 import createError from "http-errors";
 import logger from "morgan";
 import * as homeController from "./controllers/homeController.js";
 
 const app = express();
+const __filename = fileURLToPath(import.meta.url); //obtain filename.
+const __dirname = path.dirname(__filename); //obtain directory.
 
 app.set("views", "views"); //Views folder, this is for setting the ejs
 app.set("view engine", "ejs");
@@ -17,7 +21,7 @@ app.locals.appName = "NodeApp"; //third option for appName, as local for entire 
 // });
 //Morgan replaces all of the above
 app.use(logger("dev"));
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 /**
  * Application routes
