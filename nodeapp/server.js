@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 //Create http server
 const server = http.createServer(app);
 
+server.on("error", (err) => console.error(err));
 server.on("listening", () => {
   console.log(`Server started on htttp://localhost:${port}`);
 });
