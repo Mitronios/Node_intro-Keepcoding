@@ -32,6 +32,11 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //Here index comes from homeController using MVC
 app.get("/", homeController.index);
+app.get("/param_in_route/:num?", homeController.paramInRoute);
+app.get(
+  "/param_in_route_multiple/:product/size/:size([0-9]+)/color/:color",
+  homeController.paramInRouteMultiple
+);
 
 //Here we're changing default message for things that are not defined yet
 //Like a request to /cat
