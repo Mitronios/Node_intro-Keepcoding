@@ -1,6 +1,7 @@
 import express from "express";
 import createError from "http-errors";
 import logger from "morgan";
+import * as homeController from "./controllers/homeController.js";
 
 const app = express();
 
@@ -13,10 +14,8 @@ const app = express();
 //Morgan replaces all of the above
 app.use(logger("dev"));
 
-//In this example this will be the next execution
-app.get("/", (req, res, next) => {
-  res.send("Hello from node with express");
-});
+//Here index comes from homeController using MVC
+app.get("/", homeController.index);
 
 //Here we're changing default message for things that are not defined yet
 //Like a request to /cat
