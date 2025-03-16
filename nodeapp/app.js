@@ -34,6 +34,12 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   //This is for error handling and the only one receiving 4 parameters
   res.status(err.status || 500); //Si no es el error definido, asumimos q es el servidor por eso codigo 500
-  res.send("Something went wrong: " + err.message);
+  // res.send("Something went wrong: " + err.message);
+
+  //Set locals, including erro information in development
+  res.locals.message = err.message;
+  res.locals.error = process.env.NODEAPP_ENV === "development" ? err : {};
+
+  res.render("error");
 });
 export default app;
