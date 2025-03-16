@@ -7,6 +7,8 @@ const app = express();
 
 app.set("views", "views"); //Views folder, this is for setting the ejs
 app.set("view engine", "ejs");
+app.locals.appName = "NodeApp"; //third option for appName, as local for entire app
+
 // app.use((req, res, next) => {
 //   //With next we create a 'middleware'
 //   //A middleware should answer or return the next

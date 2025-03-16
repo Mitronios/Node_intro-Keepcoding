@@ -7,5 +7,19 @@
   </head>
   <body>
     <h1><%= appName %></h1>
+    <!-- Rendering -->
+    <h2>Loops</h2>
+    <% users.forEach(user => { %>
+    <p>Agent <%= user.name %> is <%= user.age %> years old.</p>
+    <% }) %>
+
+    <h2>Conditionals</h2>
+
+    <p>The current second is <%= actualSecond %></p>
+    <% if (isEven) { %>
+    <p>The current second is even.</p>
+    <% } else { %>
+    <p>The current second is odd.</p>
+    <% } %>
   </body>
 </html>
