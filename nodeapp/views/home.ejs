@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= appName %></title>
-  </head>
-  <body>
-    <h1><%= appName %></h1>
-    <!-- Rendering -->
-    <h2>Loops</h2>
-    <% users.forEach(user => { %>
-    <p>Agent <%= user.name %> is <%= user.age %> years old.</p>
-    <% }) %>
+<%- include("header.ejs") %>
 
-    <h2>Conditionals</h2>
+<!-- Rendering -->
+<h2>Loops</h2>
+<% users.forEach(user => { %>
+<p>Agent <%= user.name %> is <%= user.age %> years old.</p>
+<% }) %>
 
-    <p>The current second is <%= actualSecond %></p>
-    <% if (isEven) { %>
-    <p>The current second is even.</p>
-    <% } else { %>
-    <p>The current second is odd.</p>
-    <% } %>
-  </body>
-</html>
+<h2>Conditionals</h2>
+
+<p>The current second is <%= actualSecond %></p>
+<% if (isEven) { %>
+<p>The current second is even.</p>
+<% } else { %>
+<p>The current second is odd.</p>
+<% } %>
+
+<!-- footer -->
+<%- include("footer.ejs") %>
