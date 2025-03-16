@@ -4,13 +4,16 @@ import express from "express";
 import createError from "http-errors";
 import logger from "morgan";
 import * as homeController from "./controllers/homeController.js";
+import ejs from "ejs";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url); //obtain filename.
 const __dirname = path.dirname(__filename); //obtain directory.
 
 app.set("views", "views"); //Views folder, this is for setting the ejs
-app.set("view engine", "ejs");
+// app.set("view engine", "ejs");
+app.set("view engine", "html");
+app.engine("html", ejs.__express);
 app.locals.appName = "NodeApp"; //third option for appName, as local for entire app
 
 // app.use((req, res, next) => {
