@@ -17,6 +17,11 @@ app.locals.appName = "NodeApp"; //third option for appName, as local for entire 
 // });
 //Morgan replaces all of the above
 app.use(logger("dev"));
+app.use(express.static("public"));
+
+/**
+ * Application routes
+ */
 
 //Here index comes from homeController using MVC
 app.get("/", homeController.index);
