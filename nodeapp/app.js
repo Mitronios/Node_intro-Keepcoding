@@ -5,6 +5,8 @@ import * as homeController from "./controllers/homeController.js";
 
 const app = express();
 
+app.set("views", "views"); //Views folder, this is for setting the ejs
+app.set("view engine", "ejs");
 // app.use((req, res, next) => {
 //   //With next we create a 'middleware'
 //   //A middleware should answer or return the next
