@@ -27,3 +27,11 @@ export function paramInRouteMultiple(req, res, next) {
 
   res.send(`You are requesting a ${product} of size ${size} in color ${color}`);
 }
+
+// param_in_query?color=red
+export function paramInQuery(req, res, next) {
+  const color = req.query.color;
+  console.log(req.query);
+
+  res.send(`The color is ${color}`);
+}
