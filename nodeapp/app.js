@@ -24,6 +24,7 @@ app.locals.appName = "NodeApp"; //third option for appName, as local for entire 
 // });
 //Morgan replaces all of the above
 app.use(logger("dev"));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 /**
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, "public")));
  */
 
 //Here index comes from homeController using MVC
+//get
 app.get("/", homeController.index);
 app.get("/param_in_route/:num?", homeController.paramInRoute);
 app.get(
@@ -38,6 +40,9 @@ app.get(
   homeController.paramInRouteMultiple
 );
 app.get("/param_in_query", homeController.paramInQuery);
+
+//Post
+app.post("/post_with_body", homeController.postWithBody);
 
 //Here we're changing default message for things that are not defined yet
 //Like a request to /cat

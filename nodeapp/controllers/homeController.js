@@ -35,3 +35,12 @@ export function paramInQuery(req, res, next) {
 
   res.send(`The color is ${color}`);
 }
+
+//Post /post_with_body
+export function postWithBody(req, res, next) {
+  // const age = req.body.age;
+  // const color = req.body.color;
+  // Using destructuring
+  const { age, color } = req.body;
+  res.send("ok");
+}
