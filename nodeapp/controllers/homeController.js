@@ -1,3 +1,5 @@
+import { query, validationResult } from "express-validator";
+
 export function index(req, res, next) {
   res.locals.users = [
     { name: "Smith", age: 45 },
@@ -28,8 +30,21 @@ export function paramInRouteMultiple(req, res, next) {
   res.send(`You are requesting a ${product} of size ${size} in color ${color}`);
 }
 
+//Validations
+export const validateParamInQuery = [
+  query("color")
+    // .notEmpty()
+    .custom((value) => {
+      return ["red", "blue"].includes(value);
+    })
+    .withMessage("must be red or blue"),
+  query("size").isNumeric().withMessage("must contain a number"),
+];
+
 // param_in_query?color=red
 export function paramInQuery(req, res, next) {
+  validationResult(req).throw();
+
   const color = req.query.color;
   console.log(req.query);
 

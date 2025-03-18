@@ -5,6 +5,7 @@ import createError from "http-errors";
 import logger from "morgan";
 import * as homeController from "./controllers/homeController.js";
 import ejs from "ejs";
+import { error } from "node:console";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url); //obtain filename.
@@ -39,7 +40,11 @@ app.get(
   "/param_in_route_multiple/:product/size/:size([0-9]+)/color/:color",
   homeController.paramInRouteMultiple
 );
-app.get("/param_in_query", homeController.paramInQuery);
+app.get(
+  "/param_in_query",
+  homeController.validateParamInQuery,
+  homeController.paramInQuery
+);
 
 //Post
 app.post("/post_with_body", homeController.postWithBody);
@@ -55,6 +60,19 @@ app.use((req, res, next) => {
 
 //error handler (should be created alway at the end, the last.)
 app.use((err, req, res, next) => {
+  //manage validation errors
+  if (err.array) {
+    err.message = "validation error";
+    err.message =
+      "Invalid request: " +
+      err
+        .array()
+        .map((e) => `${e.location} ${e.type} ${e.path} ${e.msg}`)
+        .join(", ");
+    err.status = 422;
+    // console.log(err.array());
+  }
+
   //This is for error handling and the only one receiving 4 parameters
   res.status(err.status || 500); //Si no es el error definido, asumimos q es el servidor por eso codigo 500
   // res.send("Something went wrong: " + err.message);
