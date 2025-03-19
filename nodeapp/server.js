@@ -5,7 +5,7 @@ import { resolve } from "node:path";
 const port = process.env.PORT || 3000;
 
 //Special case of use for promises with await, available with the use of ES modules
-await new Promise((resolve) => setTimeout(resolve, 5000));
+// await new Promise((resolve) => setTimeout(resolve, 5000));
 //Create a promise using await without async and use callback to call resolve after 5 seconds
 //Now the server will start 5 seconds later when promise is resolved
 
