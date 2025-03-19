@@ -3,7 +3,7 @@ import Agent from "../models/Agent.js";
 
 export async function index(req, res, next) {
   try {
-    res.locals.users = await Agent.find();
+    res.locals.agents = await Agent.find();
 
     const now = new Date();
     res.locals.isEven = now.getSeconds() % 2 === 0;

@@ -10,7 +10,7 @@ Install dependencies with:
     npm install
 ```
 
-On your first deploy you can use this command to initialize the database:
+On your **FIRST** deploy you can use this command to initialize the database:
 
 ```sh
     npm run initDB
