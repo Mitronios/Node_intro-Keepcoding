@@ -40,8 +40,8 @@ async function initUsers() {
 
   //create users
   const insertResult = await User.insertMany([
-    { email: "admin@example.com", password: "1234" },
-    { email: "user@example.com", password: "123444" },
+    { email: "admin@example.com", password: await User.hashPassword("1234") }, //We should save a hash not the password
+    { email: "user@example.com", password: await User.hashPassword("123444") },
   ]);
   console.log(`Inserted ${insertResult.length} users.`);
 }
