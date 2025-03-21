@@ -44,11 +44,12 @@ app.use(sessionManager.useSessionsInViews);
 app.get("/", homeController.index);
 app.get("/login", loginController.index);
 app.get("/logout", loginController.logout);
-app.get("/agents/new", agentsController.index);
+app.get("/agents/new", sessionManager.guard, agentsController.index);
 //post
 app.post("/login", loginController.postLogin);
+app.post("/agents/new", sessionManager.guard, agentsController.postNew);
 
-//Examples
+//Other examples
 app.get("/param_in_route/:num?", homeController.paramInRoute);
 app.get(
   "/param_in_route_multiple/:product/size/:size([0-9]+)/color/:color",
@@ -59,10 +60,7 @@ app.get(
   homeController.validateParamInQuery,
   homeController.paramInQuery
 );
-
-//Post
 app.post("/post_with_body", homeController.postWithBody);
-
 //Here we're changing default message for things that are not defined yet
 //Like a request to /cat
 //Catch 404 and send error
