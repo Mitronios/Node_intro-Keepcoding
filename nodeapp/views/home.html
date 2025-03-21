@@ -2,13 +2,20 @@
 <html lang="en">
   <%- include("header.html") %>
   <body>
+    <%- include("navbar.html") %>
     <h1><%= appName %></h1>
 
-    <!-- Rendering -->
-    <h2>Loops</h2>
+    <p>User ID: <%= session.userID %></p>
+    <!-- When no session logged -->
+    <% if (!session.userID) { %>
+    <p><a href="/login">Login</a> to access your agents</p>
+    <% } else { %>
+    <h2>Agents</h2>
     <% agents.forEach(agent => { %>
     <p>Agent <%= agent.name %> is <%= agent.age %> years old.</p>
-    <% }) %>
+    <% }) %> <% } %>
+
+    <!-- Rendering -->
 
     <h2>Conditionals</h2>
 

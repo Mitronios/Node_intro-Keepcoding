@@ -20,6 +20,8 @@ export async function postLogin(req, res, next) {
       return;
     }
     //If user doesn't exists in db but password is ok --> redirect to home
+    req.session.userId = user.id;
+
     res.redirect("/");
   } catch (error) {
     next(error);
