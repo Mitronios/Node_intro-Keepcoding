@@ -3,9 +3,10 @@ import { fileURLToPath } from "node:url"; //because of ES modules
 import express from "express";
 import createError from "http-errors";
 import logger from "morgan";
+import connectMongoose from "./lib/connectMongoose.js";
 import * as homeController from "./controllers/homeController.js";
 import * as loginController from "./controllers/loginController.js";
-import connectMongoose from "./lib/connectMongoose.js";
+import * as agentsController from "./controllers/agentsController.js";
 import * as sessionManager from "./lib/sessionManager.js";
 
 await connectMongoose(); //top level await thanks to ES modules
@@ -43,6 +44,7 @@ app.use(sessionManager.useSessionsInViews);
 app.get("/", homeController.index);
 app.get("/login", loginController.index);
 app.get("/logout", loginController.logout);
+app.get("/agents/new", agentsController.index);
 //post
 app.post("/login", loginController.postLogin);
 

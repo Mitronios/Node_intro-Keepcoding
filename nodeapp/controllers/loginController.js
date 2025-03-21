@@ -32,8 +32,8 @@ export function logout(req, res, next) {
   req.session.regenerate((err) => {
     if (err) {
       next(err);
-      return ``;
+      return;
     }
-    res.render("/");
+    res.redirect("/");
   });
 }

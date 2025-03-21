@@ -1,0 +1,23 @@
+<%- include("header.html") %>
+<div class="container mt-5">
+  <h2>New Agent</h2>
+
+  <form method="POST">
+    <div class="mb-3">
+      <label for="inputName" class="form-label">Name</label>
+      <input
+        name="name"
+        type="text"
+        class="form-control"
+        id="inputName"
+        aria-describedby="emailHelp"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="inputAge" class="form-label">Age</label>
+      <input name="Age" type="number" class="form-control" id="inputAge" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<%- include("footer.html") %>

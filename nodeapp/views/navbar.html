@@ -20,13 +20,13 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="/agents/new">New Agent</a>
         </li>
       </ul>
-      <% if (!session.userID) { %>
+      <% if (!session.userId) { %>
       <a class="btn btn-success" href="/login">Login</a>
       <% } else { %>
-      <a class="btn btn-outline-success" href="/login">Logout</a>
+      <a class="btn btn-outline-success" href="/logout">Logout</a>
       <% } %>
     </div>
   </div>

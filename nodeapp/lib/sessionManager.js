@@ -1,6 +1,5 @@
 import session from "express-session";
 import MongoStore from "connect-mongo";
-import dotenv from "dotenv";
 
 const INACTIVITY_EXPIRATION_2_DAYS = 1000 * 60 * 60 * 24 * 2; // 48 hours
 const password = process.env.MONGODB_PASSWORD;
