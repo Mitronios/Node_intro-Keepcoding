@@ -4,6 +4,7 @@ import express from "express";
 import createError from "http-errors";
 import logger from "morgan";
 import * as homeController from "./controllers/homeController.js";
+import * as loginController from "./controllers/loginController.js";
 import connectMongoose from "./lib/connectMongoose.js";
 
 await connectMongoose(); //top level await thanks to ES modules
@@ -37,6 +38,9 @@ app.use(express.static(path.join(__dirname, "public")));
 //Here index comes from homeController using MVC
 //get
 app.get("/", homeController.index);
+app.get("/login", loginController.index);
+
+//Examples
 app.get("/param_in_route/:num?", homeController.paramInRoute);
 app.get(
   "/param_in_route_multiple/:product/size/:size([0-9]+)/color/:color",

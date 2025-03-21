@@ -1,3 +1,8 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
+<%- include("header.html") %>
+<h1><%= appName %></h1>
+
+<h2><%= message %></h2>
+<h3><%= error.status %></h3>
 <pre><%= error.stack %></pre>
+
+<%- include("footer.html") %>
