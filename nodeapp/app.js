@@ -39,6 +39,8 @@ app.use(express.static(path.join(__dirname, "public")));
 //get
 app.get("/", homeController.index);
 app.get("/login", loginController.index);
+//post
+app.post("/login", loginController.postLogin);
 
 //Examples
 app.get("/param_in_route/:num?", homeController.paramInRoute);
