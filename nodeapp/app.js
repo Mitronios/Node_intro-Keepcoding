@@ -39,12 +39,10 @@ app.use(express.static(path.join(__dirname, "public")));
 //Here index comes from homeController using MVC
 //get
 app.use(sessionManager.middleware);
-app.use((req, res, next) => {
-  res.locals.session = req.session;
-  next();
-});
+app.use(sessionManager.useSessionsInViews);
 app.get("/", homeController.index);
 app.get("/login", loginController.index);
+app.get("/logout", loginController.logout);
 //post
 app.post("/login", loginController.postLogin);
 

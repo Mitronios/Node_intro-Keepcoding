@@ -10,3 +10,8 @@ export const middleware = session({
   resave: false, //this and above are not absolutely necessary
   cookie: { maxAge: INACTIVITY_EXPIRATION_2_DAYS },
 });
+
+export function useSessionsInViews(req, res, next) {
+  res.locals.session = req.session;
+  next();
+}

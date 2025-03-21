@@ -5,9 +5,9 @@
     <%- include("navbar.html") %>
     <h1><%= appName %></h1>
 
-    <p>User ID: <%= session.userID %></p>
+    <p>User ID: <%= session.userId %></p>
     <!-- When no session logged -->
-    <% if (!session.userID) { %>
+    <% if (!session.userId) { %>
     <p><a href="/login">Login</a> to access your agents</p>
     <% } else { %>
     <h2>Agents</h2>
