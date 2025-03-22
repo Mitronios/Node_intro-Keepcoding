@@ -44,10 +44,15 @@ app.use(sessionManager.useSessionsInViews);
 app.get("/", homeController.index);
 app.get("/login", loginController.index);
 app.get("/logout", loginController.logout);
-app.get("/agents/new", sessionManager.guard, agentsController.index);
 //post
 app.post("/login", loginController.postLogin);
 app.post("/agents/new", sessionManager.guard, agentsController.postNew);
+//Delete
+app.get(
+  "/agents/delete/:agentId",
+  sessionManager.guard,
+  agentsController.deleteAgent
+);
 
 //Other examples
 app.get("/param_in_route/:num?", homeController.paramInRoute);
